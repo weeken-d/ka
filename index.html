@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>카카오톡 자동처럼 보이는 전송</title>
+  <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+  <style>
+    body {
+      background-color: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    #kakao-link-btn {
+      background-color: white;
+      color: black;
+      border: none;
+      padding: 20px 40px;
+      font-size: 1.5em;
+      font-weight: bold;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      transition: transform 0.1s ease;
+    }
+    #kakao-link-btn:active {
+      transform: scale(0.98);
+    }
+  </style>
+</head>
+<body>
+
+  <button id="kakao-link-btn">메시지 전송됨 ✔️</button>
+
+  <script>
+    Kakao.init('c832028f954aec1e39de1a94374092cd'); // 여기에 본인의 JavaScript 키 넣기
+
+    document.getElementById('kakao-link-btn').addEventListener('click', function () {
+      Kakao.Link.sendDefault({
+        objectType: 'text',
+        text: '헷갈리게 만들어 놓은 메시지입니다 😎',
+        link: {
+          mobileWebUrl: 'https://your-website.com',
+          webUrl: 'https://your-website.com'
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
