@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>📢 중요한 메시지 도착!</title>
+  <title>📢 새로운 알림 도착</title>
   <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
   <style>
     body {
@@ -38,18 +38,18 @@
   <button id="kakao-link-btn">📨 메시지 확인하기</button>
 
   <script>
-    Kakao.init('c832028f954aec1e39de1a94374092cd'); // 본인의 앱 키 넣기
+    window.onload = function() {
+      Kakao.init('c832028f954aec1e39de1a94374092cd');  // JavaScript 키 제대로 넣기
 
-    document.getElementById('kakao-link-btn').addEventListener('click', function () {
-      Kakao.Link.sendDefault({
-        objectType: 'text',
-        text: '※ 긴급공지 ※\n지금 확인하지 않으면 손해볼 수 있어요.\n👇👇👇\nhttps://your-site-url.com',
-        link: {
-          mobileWebUrl: 'https://your-site-url.com',
-          webUrl: 'https://your-site-url.com'
-        }
+      // 버튼 클릭 시 이벤트 핸들링
+      document.getElementById('kakao-link-btn').addEventListener('click', function () {
+        console.log("버튼이 눌렸습니다!");  // 확인용
+        Kakao.Link.sendDefault({
+          objectType: 'text',
+          text: '※ 긴급 공지 ※\n지금 꼭 확인하세요. 당신에게 중요한 내용입니다.'
+        });
       });
-    });
+    };
   </script>
 
 </body>
